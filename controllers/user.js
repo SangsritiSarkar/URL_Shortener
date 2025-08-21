@@ -23,7 +23,13 @@ async function handleUserLogIn(req,res){
     setUser(sessionId, user);
     res.cookie("uid", sessionId);*/ //Statefull auth
     const token = setUser(user); 
+    /*
+    Cookie method for browser
     res.cookie("uid", token);
+    return res.redirect("/");
+    */
+   //Response method
+   res.cookie("token", token);
     return res.redirect("/");
 }
 
